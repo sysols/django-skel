@@ -4,6 +4,7 @@ Django settings for {{ project_name }} project.
 """
 
 import os
+import re
 
 MAIN_APPLICATION_PATH = os.path.dirname(
     os.path.dirname(os.path.abspath(__file__))
@@ -26,7 +27,12 @@ DEBUG = os.environ.get('DEBUG', 'False').lower() in (
 )
 
 
-ALLOWED_HOSTS = ['*']
+if DEBUG:
+    ALLOWED_HOSTS = ['*']
+else:
+    ah = os.environ.get('ALLOWED_HOSTS', '*')
+    ah = re.split(',', ah)
+    ALLOWED_HOSTS = ah
 
 SITE_ID = 1
 

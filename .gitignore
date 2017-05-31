@@ -99,3 +99,21 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+
+# Local
+_test
+*.sqlite3
+/data
+elasticsearch
+/docker/db/pgdata
+/docker/dev/data
+/docker/prod/data
+*/settings/local*.py
+*/settings/production.py
+/static-files
+/media
+node_modules
+
+.idea
+*.iml
